@@ -47,42 +47,66 @@ interface CVData {
 }
 
 const DEFAULT_DATA: CVData = {
-  name: "ALEXANDER RIVERA",
-  title: "Senior Full Stack Developer",
-  email: "alex.rivera@example.com",
-  phone: "+1 (555) 000-1234",
-  website: "alexrivera.dev",
-  location: "San Francisco, CA",
-  linkedin: "linkedin.com/in/alexrivera",
-  github: "github.com/arivera",
-  summary: "Results-oriented Full Stack Developer with over 8 years of experience in building scalable web applications. Expert in React, Node.js, and Cloud Architecture. Proven track record of leading cross-functional teams and delivering high-impact software solutions that drive business growth.",
+  name: "AHMED MOHAMED WATTER",
+  title: "Planning Engineer (PMI-PMP®, PRMG)",
+  email: "ahmedwatter920@gmail.com",
+  phone: "+966591160840",
+  website: "",
+  location: "Riyadh, Saudi Arabia",
+  linkedin: "linkedin.com/in/ahmed-watter",
+  github: "",
+  summary: "PMP-Certified Planning Engineer with over 8 years of experience in project planning, scheduling, monitoring, and reporting for large-scale construction and MEP projects. Expert in Primavera P6, progress tracking, baseline and recovery schedules, cash flow analysis, and resource management. Proven ability to support on-time project delivery and effective decision-making.",
   experience: [
     {
       id: '1',
-      company: "TechFlow Solutions",
-      role: "Senior Software Engineer",
-      period: "Jan 2021 - Present",
-      description: "Led the migration of a legacy monolithic architecture to a microservices-based system using AWS and Kubernetes. Improved system performance by 40% and reduced deployment time by 60% through CI/CD optimization."
+      company: "Technical Development Co. | Riyadh, Saudi Arabia",
+      role: "Planning Engineer",
+      period: "Aug 2024 – Present",
+      description: "Project: MEP Enhancement Mech, Elec and LPG (Owner: KAFD | Consultant: Parsons)\n• Developed baseline, recovery, and revised schedules using Primavera P6.\n• Monitored project progress and updated schedules to ensure timely completion.\n• Prepared weekly and monthly progress reports for management and stakeholders.\n• Performed cash flow tracking and schedule variance analysis.\n• Prepared resource loading and histograms for effective resource management."
     },
     {
       id: '2',
-      company: "Innovate Digital",
-      role: "Full Stack Developer",
-      period: "Mar 2018 - Dec 2020",
-      description: "Developed and maintained multiple client-facing web applications using React and Express. Implemented real-time data visualization dashboards that served over 50,000 monthly active users."
+      company: "Redcon Construction Co. S.A.E",
+      role: "Planning Engineer",
+      period: "Jun 2022 – Aug 2024",
+      description: "Projects: Sidi Henish Village (Owner: El-Tourath) & Jefaira Village (Owner: INERTIA)\n• Developed baseline, recovery, and revised schedules using Primavera P6.\n• Monitored project progress and updated schedules to ensure timely completion.\n• Performed cash flow tracking and schedule variance analysis (Earned Value Management).\n• Prepared weekly and monthly progress reports for management and stakeholders.\n• Prepared resource loading and histograms for effective resource management."
+    },
+    {
+      id: '3',
+      company: "Elnour Office",
+      role: "Site Engineer",
+      period: "Jun 2020 – Dec 2020",
+      description: "• Supervised finishing works including plastering, flooring, painting, and masonry.\n• Supervised structural elements such as raft foundations, columns, retaining walls, and flat slabs."
+    },
+    {
+      id: '4',
+      company: "Elsharabasy Company",
+      role: "Site Engineer",
+      period: "Jan 2019 – May 2020",
+      description: "• Supervised masonry works and structural elements including raft foundations, columns, and retaining walls."
     }
   ],
-  skills: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS", "Docker", "GraphQL", "Tailwind CSS"],
-  certifications: ["AWS Certified Solutions Architect", "Google Professional Cloud Developer"],
+  skills: ["Primavera P6", "Power BI", "Synchro (4D)", "AutoCAD", "MS Excel (Advanced)", "MS Project", "MS Word", "MS PowerPoint"],
+  certifications: [
+    "PMI-PMP® — Project Management Professional (2024)",
+    "PRMG Diploma — AUC Egypt (2023)",
+    "Primavera P6 Certification — ITC Academy (2022)",
+    "Construction Claims Mgmt — Khaled Abdelaal",
+    "Risk Management Professional (PMI–RMP)",
+    "Construction Delay Analysis (Hossam Kandel)",
+    "Delay Analysis & EOT Claims (Ali Katary)",
+    "4D Planning by Synchro Pro (Kayan Academy)",
+    "Advanced Baseline Scheduling (Hany Ismail)"
+  ],
   education: [
     {
       id: '1',
-      school: "Stanford University",
-      degree: "B.S. in Computer Science",
-      period: "2014 - 2018"
+      school: "Nile Academy for Engineering, Mansoura City",
+      degree: "Bachelor of Science in Civil Engineering",
+      period: "2012 – 2017"
     }
   ],
-  languages: ["English (Native)", "Spanish (Professional)", "German (Elementary)"]
+  languages: ["Arabic (Native)", "English (Advanced)"]
 };
 
 export default function App() {
@@ -200,6 +224,7 @@ export default function App() {
           <header className="border-b-4 border-blue-600 pb-8 mb-8">
             <h1 
               contentEditable={isEditMode}
+              suppressContentEditableWarning={true}
               onBlur={(e) => updateField('name', e.currentTarget.textContent || '')}
               className={`text-5xl font-extrabold tracking-tight mb-2 outline-none ${isEditMode ? 'bg-blue-50 ring-2 ring-blue-200 rounded' : ''}`}
             >
@@ -207,6 +232,7 @@ export default function App() {
             </h1>
             <h2 
               contentEditable={isEditMode}
+              suppressContentEditableWarning={true}
               onBlur={(e) => updateField('title', e.currentTarget.textContent || '')}
               className={`text-2xl text-blue-600 font-semibold mb-6 outline-none ${isEditMode ? 'bg-blue-50 ring-2 ring-blue-200 rounded' : ''}`}
             >
@@ -216,27 +242,27 @@ export default function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-8 text-slate-600 text-sm">
               <div className="flex items-center gap-2">
                 <Mail size={14} className="text-blue-500" />
-                <span contentEditable={isEditMode} onBlur={(e) => updateField('email', e.currentTarget.textContent || '')}>{data.email}</span>
+                <span contentEditable={isEditMode} suppressContentEditableWarning={true} onBlur={(e) => updateField('email', e.currentTarget.textContent || '')}>{data.email}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={14} className="text-blue-500" />
-                <span contentEditable={isEditMode} onBlur={(e) => updateField('phone', e.currentTarget.textContent || '')}>{data.phone}</span>
+                <span contentEditable={isEditMode} suppressContentEditableWarning={true} onBlur={(e) => updateField('phone', e.currentTarget.textContent || '')}>{data.phone}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Globe size={14} className="text-blue-500" />
-                <span contentEditable={isEditMode} onBlur={(e) => updateField('website', e.currentTarget.textContent || '')}>{data.website}</span>
+                <span contentEditable={isEditMode} suppressContentEditableWarning={true} onBlur={(e) => updateField('website', e.currentTarget.textContent || '')}>{data.website}</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="text-blue-500" />
-                <span contentEditable={isEditMode} onBlur={(e) => updateField('location', e.currentTarget.textContent || '')}>{data.location}</span>
+                <span contentEditable={isEditMode} suppressContentEditableWarning={true} onBlur={(e) => updateField('location', e.currentTarget.textContent || '')}>{data.location}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Linkedin size={14} className="text-blue-500" />
-                <span contentEditable={isEditMode} onBlur={(e) => updateField('linkedin', e.currentTarget.textContent || '')}>{data.linkedin}</span>
+                <span contentEditable={isEditMode} suppressContentEditableWarning={true} onBlur={(e) => updateField('linkedin', e.currentTarget.textContent || '')}>{data.linkedin}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Github size={14} className="text-blue-500" />
-                <span contentEditable={isEditMode} onBlur={(e) => updateField('github', e.currentTarget.textContent || '')}>{data.github}</span>
+                <span contentEditable={isEditMode} suppressContentEditableWarning={true} onBlur={(e) => updateField('github', e.currentTarget.textContent || '')}>{data.github}</span>
               </div>
             </div>
           </header>
@@ -246,6 +272,7 @@ export default function App() {
             <h3 className="text-xl font-bold uppercase tracking-wider text-slate-800 border-b border-slate-200 pb-2 mb-4">Professional Summary</h3>
             <p 
               contentEditable={isEditMode}
+              suppressContentEditableWarning={true}
               onBlur={(e) => updateField('summary', e.currentTarget.textContent || '')}
               className={`text-slate-700 leading-relaxed outline-none ${isEditMode ? 'bg-blue-50 ring-2 ring-blue-200 rounded p-2' : ''}`}
             >
@@ -278,6 +305,7 @@ export default function App() {
                   <div className="flex justify-between items-start mb-1">
                     <h4 
                       contentEditable={isEditMode}
+                      suppressContentEditableWarning={true}
                       onBlur={(e) => updateExperience(exp.id, 'company', e.currentTarget.textContent || '')}
                       className="text-lg font-bold text-slate-800 outline-none"
                     >
@@ -285,6 +313,7 @@ export default function App() {
                     </h4>
                     <span 
                       contentEditable={isEditMode}
+                      suppressContentEditableWarning={true}
                       onBlur={(e) => updateExperience(exp.id, 'period', e.currentTarget.textContent || '')}
                       className="text-sm font-semibold text-slate-500 italic outline-none"
                     >
@@ -293,6 +322,7 @@ export default function App() {
                   </div>
                   <div 
                     contentEditable={isEditMode}
+                    suppressContentEditableWarning={true}
                     onBlur={(e) => updateExperience(exp.id, 'role', e.currentTarget.textContent || '')}
                     className="text-blue-600 font-semibold mb-2 outline-none"
                   >
@@ -300,6 +330,7 @@ export default function App() {
                   </div>
                   <p 
                     contentEditable={isEditMode}
+                    suppressContentEditableWarning={true}
                     onBlur={(e) => updateExperience(exp.id, 'description', e.currentTarget.textContent || '')}
                     className={`text-slate-700 leading-relaxed outline-none whitespace-pre-wrap ${isEditMode ? 'bg-blue-50 ring-2 ring-blue-200 rounded p-2' : ''}`}
                   >
@@ -326,6 +357,7 @@ export default function App() {
                   <div key={index} className="group relative">
                     <span 
                       contentEditable={isEditMode}
+                      suppressContentEditableWarning={true}
                       onBlur={(e) => updateList('skills', index, e.currentTarget.textContent || '')}
                       className="inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded text-sm font-medium outline-none"
                     >
@@ -359,6 +391,7 @@ export default function App() {
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full flex-shrink-0" />
                     <span 
                       contentEditable={isEditMode}
+                      suppressContentEditableWarning={true}
                       onBlur={(e) => updateList('certifications', index, e.currentTarget.textContent || '')}
                       className="outline-none flex-grow"
                     >
@@ -400,6 +433,7 @@ export default function App() {
                     <div>
                       <h4 
                         contentEditable={isEditMode}
+                        suppressContentEditableWarning={true}
                         onBlur={(e) => updateEducation(edu.id, 'school', e.currentTarget.textContent || '')}
                         className="font-bold text-slate-800 outline-none"
                       >
@@ -407,6 +441,7 @@ export default function App() {
                       </h4>
                       <div 
                         contentEditable={isEditMode}
+                        suppressContentEditableWarning={true}
                         onBlur={(e) => updateEducation(edu.id, 'degree', e.currentTarget.textContent || '')}
                         className="text-slate-600 text-sm outline-none"
                       >
@@ -415,6 +450,7 @@ export default function App() {
                     </div>
                     <span 
                       contentEditable={isEditMode}
+                      suppressContentEditableWarning={true}
                       onBlur={(e) => updateEducation(edu.id, 'period', e.currentTarget.textContent || '')}
                       className="text-sm font-semibold text-slate-500 italic outline-none"
                     >
@@ -433,6 +469,7 @@ export default function App() {
                 <div key={index} className="group flex items-center gap-2">
                   <span 
                     contentEditable={isEditMode}
+                    suppressContentEditableWarning={true}
                     onBlur={(e) => updateList('languages', index, e.currentTarget.textContent || '')}
                     className="outline-none"
                   >
